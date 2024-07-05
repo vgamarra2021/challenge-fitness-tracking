@@ -1,0 +1,73 @@
+<div class="flex flex-col items-center justify-center py-8 mx-auto lg:py-0">
+  <div
+    class="w-full bg-opacity-90 backdrop-blur-sm rounded-lg shadow border md:mt-0 max-w-md xl:p-0 bg-gray-800 border-gray-700"
+  >
+    <div class="p-10 space-y-4 w-full">
+      <h1
+        class="text-2xl text-center font-bold leading-tight tracking-tight text-white"
+      >
+        Fitness Tracker
+      </h1>
+      <form class="flex flex-col gap-4" [formGroup]="formGroup">
+        <div>
+          <label for="email" class="block mb-2 text-sm font-medium text-white"
+            >Email</label
+          >
+          <input
+            type="text"
+            id="email"
+            class="border rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+            [ngClass]="isValid('email') ? 'border-red-500' : ''"
+            pInputText
+            formControlName="email"
+          />
+          <p *ngIf="isValid('email')" class="text-gray-200 text-sm mt-1">
+            Ingrese un email válido!
+          </p>
+        </div>
+        <div>
+          <label
+            for="password"
+            class="block mb-2 text-sm font-medium text-white"
+            >Contraseña</label
+          >
+          <input
+            type="password"
+            id="password"
+            class="border rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+            pInputText
+            formControlName="password"
+            [ngClass]="isValid('password') ? 'border-red-500' : ''"
+          />
+          <p *ngIf="isValid('password')" class="text-gray-200 text-sm mt-1">
+            Ingrese una contraseña válida!
+          </p>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-start select-none">
+            <div class="flex items-center h-5">
+              <p-checkbox
+                formControlName="remember"
+                inputId="remember"
+                [binary]="true"
+                styleClass="scale-90"
+              ></p-checkbox>
+            </div>
+            <div class="ml-2 text-sm">
+              <label for="remember" class="text-gray-300 cursor-pointer"
+                >Recordarme</label
+              >
+            </div>
+          </div>
+        </div>
+        <app-primary-button title="Ingresar"></app-primary-button>
+        <p class="text-sm font-light text-gray-400 w-80 sm:w-96">
+          ¿Aún no tienes una cuenta?
+          <a routerLink="/register" ref class="font-medium text-white hover:underline"
+            >Registrate!</a
+          >
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
