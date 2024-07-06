@@ -1,1 +1,14 @@
-<p>home works!</p>
+<div class="flex flex-col justify-center items-center">
+  <p-knob
+    [(ngModel)]="value"
+    [max]="200"
+    [size]="300"
+    [strokeWidth]="10"
+    valueTemplate="{value}s"
+  ></p-knob>
+  <p-dropdown
+    [options]="exercises"
+    [(ngModel)]="selectedExercise"
+    optionLabel="name"
+  ></p-dropdown>
+</div>

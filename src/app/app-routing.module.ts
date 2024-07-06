@@ -14,10 +14,15 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadComponent: () =>
-      import('./pages/home/home.component').then((m) => m.HomeComponent),
+    loadChildren: () =>
+      import('./pages/home/home.module').then((m) => m.HomeModule),
   },
-  { path: '**', redirectTo: 'home' },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./pages/profile/profile.module').then((m) => m.ProfileModule),
+  },
+  { path: '**', redirectTo: 'login' },
 ];
 
 @NgModule({

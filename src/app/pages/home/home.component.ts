@@ -1,14 +1,11 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [CommonModule],
+  selector: 'app-home-ui',
   templateUrl: './home.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class HomeComponent {
-
+  value: number = 60;
+  @Input() exercises!: { name: string; durationInSeconds: number }[];
 }
