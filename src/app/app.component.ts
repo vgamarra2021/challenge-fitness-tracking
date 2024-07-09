@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styles: [
     `
       :host {
-        @apply overflow-hidden bg-gray-900
+        @apply flex overflow-hidden w-full h-full
       }
     `,
   ],

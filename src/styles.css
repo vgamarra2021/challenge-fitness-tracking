@@ -51,6 +51,13 @@ body {
   overflow: hidden;
 }
 
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

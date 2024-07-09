@@ -1,4 +1,6 @@
-export const exercises = [
+import { IExercise } from '../interfaces/exercise.interface';
+
+export const exercisesConst: IExercise[] = [
   {
     name: 'Saltos de tijera (Jumping Jacks)',
     durationInSeconds: 30,

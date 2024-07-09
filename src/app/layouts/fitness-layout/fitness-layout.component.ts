@@ -11,7 +11,7 @@ import { NavBarComponent } from 'src/app/shared/nav-bar/nav-bar.component';
   styles: [
     `
       :host {
-        @apply flex flex-col h-full;
+        @apply flex flex-col h-full w-full;
       }
     `,
   ],

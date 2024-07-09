@@ -1,1 +1,42 @@
-<p>profile works!</p>
+<div class="flex flex-col items-center gap-5 mx-auto w-full max-w-80">
+  <div class="flex items-center gap-3 justify-center">
+    <svg
+      class="size-20"
+      viewBox="0 0 106 107"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M53 10.7C45.584 10.6986 38.2974 12.6607 31.8674 16.3904C25.4374 20.1201 20.089 25.4869 16.3559 31.9553C12.6229 38.4236 10.6358 45.7672 10.593 53.253C10.5502 60.7388 12.4532 68.105 16.112 74.6164C18.5851 71.372 21.7641 68.7452 25.4034 66.939C29.0427 65.1328 33.0447 64.1957 37.1 64.2H68.9C72.9553 64.1957 76.9574 65.1328 80.5966 66.939C84.2359 68.7452 87.4149 71.372 89.888 74.6164C93.5468 68.105 95.4498 60.7388 95.407 53.253C95.3642 45.7672 93.3771 38.4236 89.6441 31.9553C85.911 25.4869 80.5626 20.1201 74.1326 16.3904C67.7026 12.6607 60.416 10.6986 53 10.7ZM95.0979 86.0065C102.184 76.6813 106.017 65.2527 106 53.5C106 23.9519 82.2719 0 53 0C23.7281 0 5.96421e-05 23.9519 5.96421e-05 53.5C-0.017438 65.2527 3.81555 76.6815 10.9021 86.0065L10.8756 86.1028L12.7571 88.3124C17.7279 94.1787 23.8998 98.8872 30.8473 102.113C37.7947 105.34 45.3526 107.007 53 107C63.7448 107.02 74.2392 103.725 83.0775 97.5572C86.8454 94.9293 90.262 91.8221 93.2429 88.3124L95.1244 86.1028L95.0979 86.0065ZM53 21.4C48.7831 21.4 44.7388 23.091 41.757 26.1009C38.7752 29.1109 37.1 33.1932 37.1 37.45C37.1 41.7067 38.7752 45.7891 41.757 48.799C44.7388 51.809 48.7831 53.5 53 53.5C57.2169 53.5 61.2612 51.809 64.243 48.799C67.2248 45.7891 68.9 41.7067 68.9 37.45C68.9 33.1932 67.2248 29.1109 64.243 26.1009C61.2612 23.091 57.2169 21.4 53 21.4Z"
+        fill="#6B748C"
+      />
+    </svg>
+
+    <div class="flex flex-col">
+      <p class="text-gray-600 font-semibold text-xl">Victor Hugo Gamarra</p>
+      <p class="text-gray-600 font-normal text-lg">Desarrollador</p>
+    </div>
+  </div>
+
+  <div
+    class="flex gap-1 bg-white border border-gray-400 w-full py-2 items-center justify-center rounded-md shadow-sm"
+  >
+    <p class="text-gray-600 font-normal text-base">Horas de Ejercicio:</p>
+    <p class="text-gray-600 font-semibold text-base">25h 5min</p>
+  </div>
+  <div
+    class="flex gap-1 bg-white border border-gray-400 w-full py-2 items-center justify-center rounded-md shadow-sm"
+  >
+    <p class="text-gray-600 font-normal text-base">Último Ejercicio:</p>
+    <p class="text-gray-600 font-semibold text-base">Hace 6h</p>
+  </div>
+
+  <app-button
+    title="Cerrar Sesión"
+    class="w-full items-center"
+    [classes]="'bg-red-600 hover:bg-red-700 focus:ring-red-300 text-md'"
+  >
+  </app-button>
+</div>

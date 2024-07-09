@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register.component';
 import { RegisterContainer } from './register.container';
-import { PrimaryButtonComponent } from 'src/app/shared/primary-button/primary-button.component';
+import { ButtonComponent } from 'src/app/shared/button/button.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -13,7 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     RegisterRoutingModule,
     ReactiveFormsModule,
-    PrimaryButtonComponent,
+    ButtonComponent,
   ],
 })
 export class RegisterModule {}

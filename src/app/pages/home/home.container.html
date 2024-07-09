@@ -1,8 +1,21 @@
 <app-fitness-layout>
   <section
-    class="w-full flex items-center justify-center"
+    class="relative w-full flex items-center justify-center"
     style="flex: 1 1 auto"
   >
-    <app-home-ui></app-home-ui>
+    <img
+      src="/assets/images/bg-fitness.png"
+      class="absolute w-full h-full object-cover object-center -z-10 opacity-30"
+      alt="BackgroundImage"
+    />
+    <app-home-ui
+      [exercises]="exerciseOptions"
+      [formGroup]="formGroup"
+      [maxTime]="maxTime"
+      [initButtonTitle]="initButtonTitle"
+      (initExercise)="initExercise()"
+      (pauseExercise)="pauseExercise()"
+      (finishExercise)="finishExercise()"
+    ></app-home-ui>
   </section>
 </app-fitness-layout>

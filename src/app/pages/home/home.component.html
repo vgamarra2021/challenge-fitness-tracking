@@ -1,14 +1,79 @@
-<div class="flex flex-col justify-center items-center">
+<form
+  class="flex flex-col justify-center items-center gap-2"
+  [formGroup]="formGroup"
+>
+  <p class="text-gray-600 font-semibold text-xl">Progreso</p>
   <p-knob
-    [(ngModel)]="value"
-    [max]="200"
+    formControlName="count"
+    [max]="maxTime"
     [size]="300"
     [strokeWidth]="10"
+    [readonly]="true"
     valueTemplate="{value}s"
   ></p-knob>
   <p-dropdown
+    formControlName="selectedExercise"
     [options]="exercises"
-    [(ngModel)]="selectedExercise"
     optionLabel="name"
-  ></p-dropdown>
-</div>
+    placeholder="Seleccione Ejercicio:"
+  />
+  <div class="flex gap-4 mt-3 w-full items-center justify-between">
+    <app-button
+      [title]="initButtonTitle"
+      (onClick)="initExercise.emit()"
+      [classes]="'w-full'"
+      class="w-1/2"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="icon icon-tabler icons-tabler-filled icon-tabler-player-play size-7 fill-white"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path
+          d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z"
+        />
+      </svg>
+    </app-button>
+    <app-button
+      title="PAUSAR"
+      (onClick)="pauseExercise.emit()"
+      [classes]="'w-full'"
+      class="w-1/2"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="icon icon-tabler icons-tabler-filled icon-tabler-player-pause size-7 fill-white"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path
+          d="M9 4h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h2a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2z"
+        />
+        <path
+          d="M17 4h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h2a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2z"
+        />
+      </svg>
+    </app-button>
+  </div>
+  <app-button
+    title="DETENER"
+    class="mt-2 w-full"
+    [classes]="'bg-red-600 hover:bg-red-700 focus:ring-red-300'"
+    (onClick)="finishExercise.emit()"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      class="icon icon-tabler icons-tabler-filled icon-tabler-player-stop size-7 fill-white"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path
+        d="M17 4h-10a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3 -3v-10a3 3 0 0 0 -3 -3z"
+      />
+    </svg>
+  </app-button>
+</form>
