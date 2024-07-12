@@ -1,6 +1,9 @@
 <p class="text-gray-600 font-semibold text-xl text-center">Reportes</p>
 
-<p-table [value]="items" [styleClass]="'w-full bg-white rounded shadow-md w-full max-w-screen-lg'">
+<p-table
+  [value]="(items | async) || []"
+  [styleClass]="'w-full bg-white rounded shadow-md w-full max-w-screen-lg'"
+>
   <ng-template pTemplate="header">
     <tr class="text-sm sm:text-base">
       <th class="p-3"><p class="text-center">Fecha</p></th>
@@ -11,10 +14,10 @@
   </ng-template>
   <ng-template pTemplate="body" let-item>
     <tr>
-      <td>{{ item.date }}</td>
-      <td>{{ item.exercise }}</td>
-      <td>{{ item.time }}</td>
-      <td>{{ item.complete }}</td>
+      <td>{{ item.date | date : "short" }}</td>
+      <td>{{ item.exerciseName }}</td>
+      <td>{{ item.timeSeconds }} s</td>
+      <td>{{ item.isComplete }}</td>
     </tr>
   </ng-template>
 </p-table>

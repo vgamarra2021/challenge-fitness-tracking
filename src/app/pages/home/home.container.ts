@@ -1,9 +1,11 @@
+import { addExercise } from './../../state/actions/exercises.actions';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { exercisesConst } from '../../constant/exercises.const';
+import { exercisesConst } from '../../constants/exercises.const';
 import { IExercise } from 'src/app/interfaces/exercise.interface';
 import { Subscription } from 'rxjs';
 import JSConfetti from 'js-confetti';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-home-container',
@@ -24,7 +26,7 @@ export class HomeContainer implements OnInit, OnDestroy {
   subscription: Subscription | undefined;
   initButtonTitle = 'INICIAR';
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private store: Store<any>) {
     this.formGroup = this.formBuilder.group({
       selectedExercise: exercisesConst[2],
       count: 0,
@@ -64,6 +66,16 @@ export class HomeContainer implements OnInit, OnDestroy {
       const jsConfetti = new JSConfetti();
       jsConfetti.addConfetti();
       //Add logic for register
+      this.store.dispatch(
+        addExercise({
+          exercise: {
+            date: new Date(),
+            exerciseName: 'test exercise',
+            isComplete: true,
+            timeSeconds: 40,
+          },
+        })
+      );
     }
   }
 

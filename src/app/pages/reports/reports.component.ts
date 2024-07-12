@@ -1,5 +1,7 @@
+import { Observable } from 'rxjs';
 import { Component, Input } from '@angular/core';
-import { charOptionsConst, chartDataConst } from 'src/app/constant/chart.const';
+import { charOptionsConst, chartDataConst } from 'src/app/constants/chart.const';
+import { ICompleteExercise } from 'src/app/interfaces/complete-exercise.interface';
 
 @Component({
   selector: 'app-reports-ui',
@@ -15,5 +17,5 @@ import { charOptionsConst, chartDataConst } from 'src/app/constant/chart.const';
 export class ReportsComponent {
   data = chartDataConst;
   options = charOptionsConst;
-  @Input() items!: any[];
+  @Input() items!: Observable<ICompleteExercise[]>;
 }
