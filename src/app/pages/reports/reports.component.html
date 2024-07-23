@@ -14,10 +14,41 @@
   </ng-template>
   <ng-template pTemplate="body" let-item>
     <tr>
-      <td>{{ item.date | date : "short" }}</td>
-      <td>{{ item.exerciseName }}</td>
-      <td>{{ item.timeSeconds }} s</td>
-      <td>{{ item.isComplete }}</td>
+      <td>
+        <p class="text-center">{{ item.date | date : "short" }}</p>
+      </td>
+      <td>
+        <p class="text-center">{{ item.exerciseName }}</p>
+      </td>
+      <td>
+        <p class="text-center">{{ item.timeSeconds | timeFormat }}</p>
+      </td>
+      <td>
+        <ng-container *ngIf="item.isComplete; else elseTemplate">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="size-6 fill-green-500 mx-auto"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="current"
+              d="m10.6 16.6l7.05-7.05l-1.4-1.4l-5.65 5.65l-2.85-2.85l-1.4 1.4zM12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"
+            />
+          </svg>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="size-6 fill-red-500 mx-auto"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="current"
+              d="M19.1 4.9C15.2 1 8.8 1 4.9 4.9S1 15.2 4.9 19.1s10.2 3.9 14.1 0s4-10.3.1-14.2m-4.3 11.3L12 13.4l-2.8 2.8l-1.4-1.4l2.8-2.8l-2.8-2.8l1.4-1.4l2.8 2.8l2.8-2.8l1.4 1.4l-2.8 2.8l2.8 2.8z"
+            />
+          </svg>
+        </ng-template>
+      </td>
     </tr>
   </ng-template>
 </p-table>

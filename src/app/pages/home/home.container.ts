@@ -6,6 +6,7 @@ import { IExercise } from 'src/app/interfaces/exercise.interface';
 import { Subscription } from 'rxjs';
 import JSConfetti from 'js-confetti';
 import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/state/app.state';
 
 @Component({
   selector: 'app-home-container',
@@ -26,7 +27,10 @@ export class HomeContainer implements OnInit, OnDestroy {
   subscription: Subscription | undefined;
   initButtonTitle = 'INICIAR';
 
-  constructor(private formBuilder: FormBuilder, private store: Store<any>) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private store: Store<AppState>
+  ) {
     this.formGroup = this.formBuilder.group({
       selectedExercise: exercisesConst[2],
       count: 0,
@@ -60,22 +64,22 @@ export class HomeContainer implements OnInit, OnDestroy {
 
   finishExercise() {
     const countControl = this.formGroup.get('count');
+    const countValue = countControl?.value;
     if (countControl?.value !== 0) {
       clearInterval(this.interval);
-      countControl!.setValue(0);
       const jsConfetti = new JSConfetti();
       jsConfetti.addConfetti();
-      //Add logic for register
       this.store.dispatch(
         addExercise({
           exercise: {
             date: new Date(),
             exerciseName: 'test exercise',
-            isComplete: true,
-            timeSeconds: 40,
+            isComplete: countValue === this.maxTime,
+            timeSeconds: countValue,
           },
         })
       );
+      countControl!.setValue(0);
     }
   }
 

@@ -8,6 +8,9 @@
       class="absolute w-full h-full object-cover object-center -z-10 opacity-30"
       alt="BackgroundImage"
     />
-    <app-profile-ui></app-profile-ui>
+    <app-profile-ui
+      [totalSeconds$]="totalSeconds$"
+      [lastExerciseTime$]="lastExerciseTime$"
+    ></app-profile-ui>
   </section>
 </app-fitness-layout>

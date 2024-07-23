@@ -24,13 +24,17 @@
     class="flex gap-1 bg-white border border-gray-400 w-full py-2 items-center justify-center rounded-md shadow-sm"
   >
     <p class="text-gray-600 font-normal text-base">Horas de Ejercicio:</p>
-    <p class="text-gray-600 font-semibold text-base">25h 5min</p>
+    <p class="text-gray-600 font-semibold text-base">
+      {{ totalSeconds$ | async | timeFormat }}
+    </p>
   </div>
   <div
     class="flex gap-1 bg-white border border-gray-400 w-full py-2 items-center justify-center rounded-md shadow-sm"
   >
     <p class="text-gray-600 font-normal text-base">Último Ejercicio:</p>
-    <p class="text-gray-600 font-semibold text-base">Hace 6h</p>
+    <p class="text-gray-600 font-semibold text-base">
+      Hace {{ lastExerciseTime$ | async | diffSeconds | timeFormat }}
+    </p>
   </div>
 
   <app-button

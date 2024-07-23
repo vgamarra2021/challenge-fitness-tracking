@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Component, Input } from '@angular/core';
+import { ICompleteExercise } from 'src/app/interfaces/complete-exercise.interface';
 
 @Component({
   selector: 'app-profile-ui',
@@ -11,4 +13,7 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class ProfileComponent {}
+export class ProfileComponent {
+  @Input() totalSeconds$!: Observable<number>;
+  @Input() lastExerciseTime$!: Observable<Date>;
+}
